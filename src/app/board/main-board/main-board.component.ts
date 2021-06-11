@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
-import { BoardService } from './board/board.service';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { EditTalkComponent } from './board/edit-talk/edit-talk.component';
-import { MatDialog } from '@angular/material/dialog';
-import { DeleteTalkComponent } from './board/delete-talk/delete-talk.component';
-import { Board, Talk, Track } from './board/shared/models/schema.model';
+import { Component, OnInit } from '@angular/core';
+import {Board, Talk, Track} from '../shared/models/schema.model';
+import {BoardService} from '../board.service';
+import {MatDialog} from '@angular/material/dialog';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {EditTalkComponent} from '../edit-talk/edit-talk.component';
+import {DeleteTalkComponent} from '../delete-talk/delete-talk.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-main-board',
+  templateUrl: './main-board.component.html',
+  styleUrls: ['./main-board.component.css']
 })
-export class AppComponent {
-  boards: Board[] = [];
+export class MainBoardComponent implements OnInit {boards: Board[] = [];
   constructor(private _boardService: BoardService, private _dialog: MatDialog) {
     this.boards = this._boardService.getBoards();
+  }
+
+  ngOnInit() {
   }
 
   /**

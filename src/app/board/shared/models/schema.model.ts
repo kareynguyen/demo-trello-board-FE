@@ -11,11 +11,6 @@ export interface Talk {
     issueType?: IssueType;
 }
 
-// export interface Issue {
-//     name: IssueType;
-//     color: string;
-// }
-
 export enum IssueType {
     Task = 'task',
     SubTask = 'sub-task',
